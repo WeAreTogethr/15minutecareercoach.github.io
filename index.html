@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15 Minute Career Coach - Coming Soon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #46afa6; /* Teal */
+            --secondary-color: #294153; /* Dark blue */
+            --accent-color: #f7b733; /* Yellow */
+            --background-color: #f0f0f0; /* Light grey */
+            --accent-red: #fc5c5e; /* Red */
+            --text-color: #294153;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: 300px 300px;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .text-content {
+            flex: 1;
+            min-width: 300px;
+            color: var(--white);
+        }
+
+        .visual-content {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            max-width: 500px;
+        }
+
+        .launch-badge {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--secondary-color);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        .benefits {
+            margin: 1.5rem 0;
+        }
+
+        .benefit-item {
+            display: flex;
+            margin-bottom: 1rem;
+            align-items: flex-start;
+        }
+
+        .check-icon {
+            color: var(--accent-color);
+            margin-right: 0.5rem;
+            font-weight: bold;
+        }
+
+        .email-signup {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .signup-heading {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .email-form {
+            margin-top: 1.5rem;
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 0.5rem;
+        }
+
+        .email-input {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .submit-btn {
+            background-color: var(--accent-red);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.9;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            min-width: 200px;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--white);
+            font-size: 0.9rem;
+        }
+
+        .clock-icon {
+            width: 300px;
+            height: 300px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23f0f0f0'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: contain;
+            opacity: 0.9;
+        }
+
+        .books-stack {
+            position: relative;
+            width: 300px;
+            height: 200px;
+        }
+
+        .book {
+            position: absolute;
+            height: 40px;
+            border-radius: 3px;
+            background-color: var(--accent-color);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .book:nth-child(1) {
+            width: 200px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--accent-red);
+            height: 50px;
+        }
+
+        .book:nth-child(2) {
+            width: 220px;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--accent-color);
+            height: 50px;
+        }
+
+        .book:nth-child(3) {
+            width: 180px;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary-color);
+            height: 50px;
+        }
+
+        .book:nth-child(4) {
+            width: 240px;
+            bottom: 150px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--secondary-color);
+            height: 50px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            color: var(--white);
+            font-size: 0.9rem;
+            background-color: rgba(0, 0, 0, 0.1);
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+            }
+
+            .container {
+                padding: 1.5rem;
+            }
+
+            .visual-content {
+                display: none;
+            }
+
+            .email-form {
+                flex-direction: column;
+            }
+
+            .stats {
+                gap: 1rem;
+            }
+
+            .stat-item {
+                min-width: 140px;
+                padding: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="#" class="logo">15MCC</a>
+        </header>
+
+        <div class="main-content">
+            <div class="text-content">
+                <h1>15 Minute Career Coach</h1>
+                <p class="tagline">Transform Your Career in Just 15 Minutes a Day</p>
+                <div class="launch-badge">Launching 10 March 2025</div>
+                
+                <div class="benefits">
+                    <div class="benefit-item">
+                        <span class="check-icon">✓</span>
+                        <span>Time-Efficient Learning: 5-minute video + 10-minute action step</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="check-icon">✓</span>
+                        <span>LinkedIn mastery, AI-proof job search techniques & personal branding</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="check-icon">✓</span>
+                        <span>Rebuild confidence, navigate redundancy & take control of your career</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="visual-content">
+                <div class="books-stack">
+                    <div class="book"></div>
+                    <div class="book"></div>
+                    <div class="book"></div>
+                    <div class="book"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="email-signup">
+            <h2 class="signup-heading">Be the first to know when we launch</h2>
+            <p>Get notified when 15 Minute Career Coach goes live and receive exclusive early access offers.</p>
+            
+            <form class="email-form" action="https://formspree.io/f/xgepelag" method="POST">
+                <input type="email" name="email" class="email-input" placeholder="Your email address" required>
+                <button type="submit" class="submit-btn">Get Notified</button>
+            </form>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-value">15 Min</div>
+                <div class="stat-label">Daily commitment</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">On-Demand</div>
+                <div class="stat-label">Learn at your pace</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">Results</div>
+                <div class="stat-label">Get noticed & hired</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 15 Minute Career Coach. All rights reserved.</p>
+    </footer>
+</body>
+</html>
